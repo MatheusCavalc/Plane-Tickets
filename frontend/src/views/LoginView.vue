@@ -1,11 +1,10 @@
 <script setup>
-import MainLayout from '../layouts/MainLayout.vue';
-//import http from '@/services/http.js';
+import http from '@/services/http.js';
 import { reactive } from 'vue';
-//import { useAuthStore } from '@/stores/auth.js';
+import { useAuthStore } from '@/stores/auth.js';
 import router from '../router';
 
-//const auth = useAuthStore();
+const auth = useAuthStore();
 
 let user = reactive({
   email: '',
@@ -14,10 +13,13 @@ let user = reactive({
 
 async function login() {
   try {
-    const { data } = await http.post('/auth/login', user);
-    auth.setToken(data.token)
-    auth.setUser(data.user)
-    router.push({ name: 'dashboard' })
+    const { data } = await http.post('/login', user);
+    console.log(data.data.token)
+    if (data.message == 'User Loged') {
+      auth.setToken(data.data.token)
+      auth.setUser(data.data.user_name)
+      router.push({ name: 'dashboard' })
+    }
   } catch (error) {
     console.log(error?.response?.data)
   }

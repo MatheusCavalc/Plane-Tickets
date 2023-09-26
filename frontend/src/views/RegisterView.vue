@@ -1,6 +1,5 @@
 <script setup>
-import MainLayout from '../layouts/MainLayout.vue';
-//import http from '@/services/http.js';
+import http from '@/services/http.js';
 import { reactive } from 'vue';
 //import { useAuthStore } from '@/stores/auth.js';
 import router from '../router';
@@ -17,7 +16,8 @@ let user = reactive({
 async function register() {
     if (user.password == user.confirm_password) {
         try {
-            const { data } = await http.post('/auth/register', user);
+            const { data } = await http.post('/register', user);
+            console.log(data)
             if (data.message == 'User Registered') {
                 router.push({ name: 'login' })
                 //auth.setToken(data.token)
@@ -27,10 +27,6 @@ async function register() {
             console.log(error?.response?.data)
         }
     }
-}
-
-if (auth.isAuthenticated) {
-    router.push({ name: 'dashboard' })
 }
 </script>
 

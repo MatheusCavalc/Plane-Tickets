@@ -1,12 +1,8 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-//import { useAuthStore } from '@/stores/auth.js';
+import { useAuthStore } from '@/stores/auth.js';
 
-//const auth = useAuthStore();
-
-const auth = {
-    isAuthenticated: true
-}
+const auth = useAuthStore();
 
 function logout() {
   auth.clear()
