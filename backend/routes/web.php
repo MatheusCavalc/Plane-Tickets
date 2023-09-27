@@ -5,6 +5,7 @@ use App\Models\Company;
 use App\Models\Flight;
 use App\Models\Ticket;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,13 @@ Route::get('/', function () {
 
     //dd($user, $airports, $company, $flight, $ticket);
 
+    $airport = Airport::where('name', 'Fortaleza')->first();
+
+    $flights = Flight::with('departureAirport', 'destinationAirport')->where('departure_from', $airport->id)
+        ->select('destination', DB::raw('MIN(ticket_price) as ticket_price'))
+        ->groupBy('destination')
+        ->get();
+
+    dd($flights);
     return view('welcome');
 });

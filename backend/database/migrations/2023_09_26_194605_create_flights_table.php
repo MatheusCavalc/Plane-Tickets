@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('flights', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('departure_from'); //airport
-            $table->time('departure_time');
+            $table->dateTime('departure_time');
             $table->unsignedBigInteger('destination'); //airport
-            $table->time('arrival_time');
+            $table->dateTime('arrival_time');
             $table->foreignId('company_id')->constrained();
             $table->integer('available_tickets');
             $table->decimal('ticket_price', 8, 2);

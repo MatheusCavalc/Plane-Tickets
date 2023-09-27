@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,7 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/verify-token', [AuthController::class, 'verify'])->middleware('auth:sanctum');
+
+Route::get('/home', [HomeController::class, 'home']);
+Route::get('/flights/{departure}/{destination}', [HomeController::class, 'flights']);
 

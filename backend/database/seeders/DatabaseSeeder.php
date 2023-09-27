@@ -38,6 +38,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Brasilia'
         ]);
 
+        Airport::create([
+            'name' => 'Rio de Janeiro'
+        ]);
+
         Company::create([
             'name' => 'Azul'
         ]);
@@ -50,6 +54,26 @@ class DatabaseSeeder extends Seeder
             'company_id' => 1,
             'available_tickets' => 10,
             'ticket_price' => 150.00,
+        ]);
+
+        Flight::create([
+            'departure_from' => 1,
+            'departure_time' => '2023-09-30 08:00:00',
+            'destination' => 2,
+            'arrival_time' => '2023-09-30 10:00:00',
+            'company_id' => 1,
+            'available_tickets' => 10,
+            'ticket_price' => 200.00,
+        ]);
+
+        Flight::create([
+            'departure_from' => 1,
+            'departure_time' => '2023-09-30 08:00:00',
+            'destination' => 3,
+            'arrival_time' => '2023-09-30 10:00:00',
+            'company_id' => 1,
+            'available_tickets' => 10,
+            'ticket_price' => 250.00,
         ]);
 
         Ticket::create([
