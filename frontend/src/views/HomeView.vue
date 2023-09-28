@@ -32,9 +32,9 @@ onMounted(() => {
 
             <div class="flex gap-4 mt-7">
 
-                <RouterLink :to="{ path: 'flights/' + flight.departure_airport.name + '/' + flight.destination_airport.name }" v-for="flight in flights" :key="flight.id"
+                <RouterLink :to="{ path: 'flights/' + flight.departure_airport.slug + '/' + flight.destination_airport.slug }" v-for="flight in flights" :key="flight.id"
                     class="max-w-md w-80 rounded-lg text-white bg-cover bg-no-repeat group transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200"
-                    style="background-image: url(https://photo620x400.mnstatic.com/087dfd415e06b0651f4528fea6642818/rio-de-janeiro.jpg);">
+                    style="background-image: url('https://photo620x400.mnstatic.com/087dfd415e06b0651f4528fea6642818/rio-de-janeiro.jpg');">
 
                     <div class="flex justify-center mt-12">
                         <p class="font-bold text-2xl">{{ flight.destination_airport.name }}</p>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AirportController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -28,4 +29,9 @@ Route::get('/verify-token', [AuthController::class, 'verify'])->middleware('auth
 
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/flights/{departure}/{destination}', [HomeController::class, 'flights']);
+
+
+//ADMIN
+//api/airports/{airport}
+Route::apiResource('airports', AirportController::class)->middleware('auth:sanctum');
 

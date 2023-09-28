@@ -11,6 +11,7 @@ class Airport extends Model
 
     protected $fillable = [
         'name',
+        'slug'
     ];
 
     public function departureFlights()

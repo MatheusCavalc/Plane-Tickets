@@ -31,15 +31,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Airport::create([
-            'name' => 'Fortaleza'
+            'name' => 'Fortaleza',
+            'slug' => 'fortaleza'
         ]);
 
         Airport::create([
-            'name' => 'Brasilia'
+            'name' => 'Brasilia',
+            'slug' => 'brasilia'
         ]);
 
         Airport::create([
-            'name' => 'Rio de Janeiro'
+            'name' => 'Rio de Janeiro',
+            'slug' => 'rio-de-janeiro'
         ]);
 
         Company::create([

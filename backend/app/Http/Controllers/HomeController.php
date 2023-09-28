@@ -16,7 +16,8 @@ class HomeController extends Controller
     {
         $airport = Airport::where('name', 'Fortaleza')->first();
 
-        $flights = Flight::with('departureAirport', 'destinationAirport')->where('departure_from', $airport->id)
+        $flights = Flight::with('departureAirport', 'destinationAirport')
+            ->where('departure_from', $airport->id)
             ->select('departure_from', 'destination', DB::raw('MIN(ticket_price) as ticket_price'))
             ->groupBy('destination', 'departure_from')
             ->get();
@@ -26,10 +27,13 @@ class HomeController extends Controller
 
     public function flights(Request $request)
     {
-        $departure = Airport::where('name', $request->departure)->first();
-        $destination = Airport::where('name', $request->destination)->first();
+        $departure = Airport::where('slug', $request->departure)->first();
+        $destination = Airport::where('slug', $request->destination)->first();
 
-        $flights = Flight::with('departureAirport', 'destinationAirport')->where('departure_from', $departure->id)->where('destination', $destination->id)->get();
+        $flights = Flight::with('departureAirport', 'destinationAirport')
+            ->where('departure_from', $departure->id)
+            ->where('destination', $destination->id)
+            ->get();
 
         return $this->response('Flights', 200, $flights);
     }

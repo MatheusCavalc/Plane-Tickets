@@ -22,6 +22,17 @@ async function flightsHome() {
     }
 }
 
+const formatDatetime = (datetime) => {
+    const date = new Date(datetime);
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    return new Intl.DateTimeFormat('en', options).format(date);
+};
+
+const getMonthAbbreviation = (datetime) => {
+  const date = new Date(datetime);
+  return new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+};
+
 onMounted(() => {
     flightsHome()
 })
@@ -72,10 +83,12 @@ onMounted(() => {
                                 {{ flight.destination_airport.name }}
                             </td>
                             <td class="px-6 py-4">
-                                Month
+                                <p class="uppercase">
+                                    {{ getMonthAbbreviation(flight.departure_time) }}
+                                </p>
                             </td>
                             <td class="px-6 py-4">
-                                {{ flight.departure_time }}
+                                {{ formatDatetime(flight.departure_time) }}
                             </td>
                             <td class="px-6 py-4">
                                 <button class="py-2 px-8 bg-black text-white font-bold text-lg rounded-lg">
