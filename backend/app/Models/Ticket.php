@@ -13,6 +13,7 @@ class Ticket extends Model
         'flight_id',
         'user_id',
         'checkin',
+        'status_payment',
     ];
 
     public function flight()

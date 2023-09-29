@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\PaymentStatusEnum;
 use App\Filament\Resources\TicketResource\Pages;
 use App\Filament\Resources\TicketResource\RelationManagers;
 use App\Models\Ticket;
@@ -31,6 +32,11 @@ class TicketResource extends Resource
                     ->numeric(),
                 Forms\Components\Toggle::make('checkin')
                     ->required(),
+                Forms\Components\Select::make('status_payment')
+                    ->required()
+                    ->label('Payment Status')
+                    ->options(PaymentStatusEnum::values())
+                    ->default('PENDING'),
             ]);
     }
 
@@ -38,6 +44,10 @@ class TicketResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->numeric()
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('flight_id')
                     ->numeric()
                     ->sortable(),
@@ -46,6 +56,8 @@ class TicketResource extends Resource
                     ->sortable(),
                 Tables\Columns\IconColumn::make('checkin')
                     ->boolean(),
+                Tables\Columns\TextColumn::make('status_payment')
+                    ->label('Payment Status'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -59,6 +71,7 @@ class TicketResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -67,20 +80,21 @@ class TicketResource extends Resource
                 ]),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListTickets::route('/'),
             'create' => Pages\CreateTicket::route('/create'),
+            'view' => Pages\ViewTicket::route('/{record}'),
             'edit' => Pages\EditTicket::route('/{record}/edit'),
         ];
-    }    
+    }
 }

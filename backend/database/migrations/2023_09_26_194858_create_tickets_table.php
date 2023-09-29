@@ -16,6 +16,11 @@ return new class extends Migration
             $table->foreignId('flight_id')->constrained(); // Chave estrangeira para o voo
             $table->foreignId('user_id')->constrained(); // Chave estrangeira para o dono da passagem
             $table->boolean('checkin')->default(false);
+
+            $table->string('status_payment')->default('PENDING');
+
+            //PAYMENT ID (ON STRIPE)
+            //$table->longText('stripe_payment_id')->nullable();
             $table->timestamps();
         });
     }

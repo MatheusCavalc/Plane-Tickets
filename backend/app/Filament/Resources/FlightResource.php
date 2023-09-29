@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FlightResource\Pages;
 use App\Filament\Resources\FlightResource\RelationManagers;
+use App\Models\Airport;
+use App\Models\Company;
 use App\Models\Flight;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -23,15 +25,18 @@ class FlightResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('departure_from')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('destination')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('company_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('departure_from')
+                    ->label('Departure')
+                    ->options(Airport::all()->pluck('name', 'id'))
+                    ->searchable(),
+                Forms\Components\Select::make('destination')
+                    ->label('Destination')
+                    ->options(Airport::all()->pluck('name', 'id'))
+                    ->searchable(),
+                Forms\Components\Select::make('company_id')
+                    ->label('Company')
+                    ->options(Company::all()->pluck('name', 'id'))
+                    ->searchable(),
                 Forms\Components\DateTimePicker::make('departure_time')
                     ->required(),
                 Forms\Components\DateTimePicker::make('arrival_time')
@@ -83,6 +88,7 @@ class FlightResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -91,20 +97,21 @@ class FlightResource extends Resource
                 ]),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListFlights::route('/'),
             'create' => Pages\CreateFlight::route('/create'),
+            'view' => Pages\ViewFlight::route('/{record}'),
             'edit' => Pages\EditFlight::route('/{record}/edit'),
         ];
-    }    
+    }
 }
