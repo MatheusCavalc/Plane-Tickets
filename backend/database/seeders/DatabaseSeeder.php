@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('12345678'),
+            'is_admin' => true
         ]);
 
         Airport::create([
