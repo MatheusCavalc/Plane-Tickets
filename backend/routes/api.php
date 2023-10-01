@@ -29,7 +29,9 @@ Route::get('/verify-token', [AuthController::class, 'verify'])->middleware('auth
 
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/flights/{departure}/{destination}', [HomeController::class, 'flights']);
+Route::get('/flight/details/{id}', [HomeController::class, 'details']);
 
+Route::post('/flight/reserve', [HomeController::class, 'reserve'])->middleware('auth:sanctum');
 
 //ADMIN
 //api/airports/{airport}

@@ -91,9 +91,9 @@ onMounted(() => {
                                 {{ formatDatetime(flight.departure_time) }}
                             </td>
                             <td class="px-6 py-4">
-                                <button class="py-2 px-8 bg-black text-white font-bold text-lg rounded-lg">
+                                <RouterLink :to="{ path: '/flight/details/' + flight.id }" class="py-2 px-8 bg-black text-white font-bold text-lg rounded-lg">
                                     ${{ flight.ticket_price }}
-                                </button>
+                                </RouterLink>
                             </td>
                         </tr>
                     </tbody>

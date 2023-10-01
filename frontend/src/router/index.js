@@ -47,6 +47,17 @@ const router = createRouter({
       meta: {
         auth: true
       }
+    },
+    {
+      path: '/flight/details/:id',
+      name: 'flight-details',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/FlightDetailsView.vue'),
+      meta: {
+        auth: true
+      }
     }
   ]
 })
