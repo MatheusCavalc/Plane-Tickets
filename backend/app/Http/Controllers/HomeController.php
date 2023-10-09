@@ -42,7 +42,7 @@ class HomeController extends Controller
 
     public function details(Request $request)
     {
-        $flight = Flight::with('departureAirport', 'destinationAirport')->where('id', $request->id)->first();
+        $flight = Flight::with('departureAirport', 'destinationAirport', 'company')->where('id', $request->id)->first();
 
         return $this->response('Flight Details', 200, $flight);
     }
