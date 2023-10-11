@@ -49,7 +49,7 @@ onMounted(() => {
 
             <div class="relative overflow-x-auto mt-10">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-white uppercase dark:text-gray-400 bg-black">
+                    <thead class="text-xs text-white uppercase dark:text-gray-400 bg-purple-700">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Departure
@@ -91,7 +91,7 @@ onMounted(() => {
                                 {{ formatDatetime(flight.departure_time) }}
                             </td>
                             <td class="px-6 py-4">
-                                <RouterLink :to="{ path: '/flight/details/' + flight.id }" class="py-2 px-8 bg-black text-white font-bold text-lg rounded-lg">
+                                <RouterLink :to="{ path: '/flight/details/' + flight.id }" class="py-2 px-8 bg-purple-700 text-white font-bold text-lg rounded-lg">
                                     ${{ flight.ticket_price }}
                                 </RouterLink>
                             </td>

@@ -14,9 +14,9 @@ class HomeController extends Controller
 {
     use HttpResponses;
 
-    public function home()
+    public function home(Request $request)
     {
-        $airport = Airport::where('name', 'Fortaleza')->first();
+        $airport = Airport::where('name', $request->departure)->first();
 
         $flights = Flight::with('departureAirport', 'destinationAirport')
             ->where('departure_from', $airport->id)
@@ -36,7 +36,7 @@ class HomeController extends Controller
             ->where('departure_from', $departure->id)
             ->where('destination', $destination->id)
             ->where('available_tickets', '>', 0)
-            ->where('departure_time', '>', Carbon::now())
+            //->where('departure_time', '>', Carbon::now())
             ->get();
 
         return $this->response('Flights', 200, $flights);
@@ -73,5 +73,12 @@ class HomeController extends Controller
                 return $this->response('No Available Tickets', 200);
             }
         }
+    }
+
+    public function airportList(Request $request)
+    {
+        $airports = Airport::where('name', 'LIKE', "%{$request->search}%")->limit(5)->get();
+
+        return $this->response('Aiports List', 200, $airports);
     }
 }

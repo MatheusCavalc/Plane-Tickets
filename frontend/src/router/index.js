@@ -58,6 +58,16 @@ const router = createRouter({
       meta: {
         auth: true
       }
+    },
+    //route tests
+    {
+      path: '/flights/',
+      name: 'flights-all',
+      component: HomeView
+    },{
+      path: '/flights/:departure/',
+      name: 'flights-departure',
+      component: HomeView
     }
   ]
 })

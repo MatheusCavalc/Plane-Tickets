@@ -74,7 +74,7 @@ onMounted(() => {
 
                 <div>
                     <div
-                        class="py-12 sm:py-12 md:py-6 lg:py-6 xl:py-6 px-8 w-full sm:w-full bg-purple-500 shadow-none sm:shadow-none md:shadow-xl lg:shadow-xl xl:shadow-xl">
+                        class="py-12 sm:py-12 md:py-6 lg:py-6 xl:py-6 px-8 w-full sm:w-full bg-purple-700 shadow-none sm:shadow-none md:shadow-xl lg:shadow-xl xl:shadow-xl">
                         <div class="text-center py-4 px-7">
                             <h1 class="text-white text-4xl font-black">${{ flight.ticket_price }}</h1>
                             <p class="text-white text-opacity-50 mt-2">For adults, without taxs</p>
