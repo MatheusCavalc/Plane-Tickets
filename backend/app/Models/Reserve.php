@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Reserve extends Model
 {
@@ -16,12 +17,12 @@ class Reserve extends Model
         'expiration',
     ];
 
-    public function flight()
+    public function flight(): BelongsTo
     {
         return $this->belongsTo(Flight::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

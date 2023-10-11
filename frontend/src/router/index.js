@@ -67,7 +67,7 @@ router.beforeEach(async (to, from, next) => {
     const auth = useAuthStore()
     if (auth.token && auth.user) {
       const isAuthenticated = await auth.checkToken();
-      console.log(isAuthenticated);
+      //console.log(isAuthenticated);
       if (isAuthenticated == 'Valid Token') {
         next();
       } else {
@@ -76,7 +76,7 @@ router.beforeEach(async (to, from, next) => {
     } else {
       next({ name: 'login' })
     }
-    console.log(to.name)
+    //console.log(to.name)
   }
 
   else if (to.meta?.unauthenticated) {

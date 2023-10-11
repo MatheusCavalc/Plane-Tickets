@@ -7,10 +7,10 @@ import { RouterLink } from 'vue-router';
 const flights = ref('')
 
 async function flightsHome() {
-    console.log('hey')
+    //console.log('hey')
     try {
         const { data } = await http.get('/home');
-        console.log(data)
+        //console.log(data)
         flights.value = data.data
     } catch (error) {
         console.log(error?.response?.data)

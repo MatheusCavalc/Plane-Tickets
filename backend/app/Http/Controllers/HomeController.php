@@ -35,6 +35,8 @@ class HomeController extends Controller
         $flights = Flight::with('departureAirport', 'destinationAirport')
             ->where('departure_from', $departure->id)
             ->where('destination', $destination->id)
+            ->where('available_tickets', '>', 0)
+            ->where('departure_time', '>', Carbon::now())
             ->get();
 
         return $this->response('Flights', 200, $flights);

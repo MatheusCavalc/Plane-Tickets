@@ -12,10 +12,10 @@ let destination = route.params.destination
 const flights = ref('')
 
 async function flightsHome() {
-    console.log('hey')
+    //console.log('hey')
     try {
         const { data } = await http.get('/flights/' + departure + '/' + destination);
-        console.log(data)
+        //console.log(data)
         flights.value = data.data
     } catch (error) {
         console.log(error?.response?.data)
@@ -43,7 +43,7 @@ onMounted(() => {
         <section class="mx-20 mt-20">
             <div>
                 <h1 class="text-2xl font-bold">Nacional Destiny</h1>
-                <p class="text-2xl my-2">{{ destination }}</p>
+                <p class="text-2xl my-2 capitalize">{{ destination }}</p>
             </div>
 
 
