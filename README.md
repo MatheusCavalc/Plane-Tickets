@@ -18,7 +18,7 @@ npm install
 ```
 - Execute o comando abaixo para compilar e subir o frontend:
 ```shell
-npm run serve
+npm run dev
 ```
 - Volte para a raiz do projeto e vá para a pasta backend:
 ```shell
