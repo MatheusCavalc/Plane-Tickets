@@ -21,7 +21,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/RegisterView.vue'),
+      component: () => import('../views/Auth/RegisterView.vue'),
       meta: {
         unauthenticated: true
       }
@@ -32,7 +32,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/LoginView.vue'),
+      component: () => import('../views/Auth/LoginView.vue'),
       meta: {
         unauthenticated: true
       }

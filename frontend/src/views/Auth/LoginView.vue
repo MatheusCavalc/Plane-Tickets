@@ -2,7 +2,7 @@
 import http from "@/services/http.js";
 import { reactive, ref } from "vue";
 import { useAuthStore } from "@/stores/auth.js";
-import router from "../router";
+import router from "../../router";
 
 const auth = useAuthStore();
 
@@ -33,20 +33,13 @@ async function login() {
 <template>
   <main>
     <section class="absolute w-full h-full">
-      <div
-        class="absolute top-0 w-full h-full bg-gray-900"
-        style="
-          background-image: url(./assets/img/register_bg_2.png);
-          background-size: 100%;
-          background-repeat: no-repeat;
-        "
-      ></div>
+      <div class="absolute top-0 w-full h-full bg-gray-900"
+        style="background-image: url(./assets/img/register_bg_2.png); background-size: 100%; background-repeat: no-repeat;">
+      </div>
       <div class="container h-full px-4 mx-auto">
         <div class="flex items-center content-center justify-center h-full">
           <div class="w-full px-4 lg:w-4/12">
-            <div
-              class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-gray-300 border-0 rounded-lg shadow-lg"
-            >
+            <div class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-gray-300 border-0 rounded-lg shadow-lg">
               <!--
               <div class="px-6 py-6 mb-0 rounded-t">
                 <div class="mb-3 text-center">
@@ -74,56 +67,28 @@ async function login() {
                 </div>
                 <form @submit.prevent="login">
                   <div class="relative w-full mb-3">
-                    <label
-                      class="block mb-2 text-xs font-bold text-gray-700 uppercase"
-                      for="grid-password"
-                      >Email</label
-                    >
-                    <input
-                      type="email"
-                      v-model="user.email"
-                      required
-                      autofocus
+                    <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="grid-password">Email</label>
+                    <input type="email" v-model="user.email" required autofocus
                       class="w-full px-3 py-3 text-sm text-gray-700 placeholder-gray-400 bg-white border-0 rounded shadow focus:outline-none focus:ring"
-                      placeholder="Email"
-                      style="transition: all 0.15s ease 0s"
-                    />
+                      placeholder="Email" style="transition: all 0.15s ease 0s" />
                   </div>
                   <div class="relative w-full mb-3">
-                    <label
-                      class="block mb-2 text-xs font-bold text-gray-700 uppercase"
-                      for="grid-password"
-                      >Password</label
-                    >
-                    <input
-                      type="password"
-                      v-model="user.password"
-                      required
+                    <label class="block mb-2 text-xs font-bold text-gray-700 uppercase"
+                      for="grid-password">Password</label>
+                    <input type="password" v-model="user.password" required
                       class="w-full px-3 py-3 text-sm text-gray-700 placeholder-gray-400 bg-white border-0 rounded shadow focus:outline-none focus:ring"
-                      placeholder="Password"
-                      style="transition: all 0.15s ease 0s"
-                    />
+                      placeholder="Password" style="transition: all 0.15s ease 0s" />
                   </div>
                   <div>
-                    <label class="inline-flex items-center cursor-pointer"
-                      ><input
-                        id="customCheckLogin"
-                        type="checkbox"
+                    <label class="inline-flex items-center cursor-pointer"><input id="customCheckLogin" type="checkbox"
                         class="w-5 h-5 ml-1 text-gray-800 border-0 rounded form-checkbox"
-                        style="transition: all 0.15s ease 0s"
-                      /><span class="ml-2 text-sm font-semibold text-gray-700"
-                        >Remember me</span
-                      ></label
-                    >
+                        style="transition: all 0.15s ease 0s" /><span
+                        class="ml-2 text-sm font-semibold text-gray-700">Remember me</span></label>
                   </div>
                   <div class="mt-6 text-center">
-                    <button
-                      :disabled="disabledButton"
-                      :class="[disabledButton ? 'bg-gray-400' : 'bg-gray-900']"
+                    <button :disabled="disabledButton" :class="[disabledButton ? 'bg-gray-400' : 'bg-gray-900']"
                       class="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase rounded shadow outline-none active:bg-gray-700 hover:shadow-lg focus:outline-none"
-                      type="submit"
-                      style="transition: all 0.15s ease 0s"
-                    >
+                      type="submit" style="transition: all 0.15s ease 0s">
                       Sign In
                     </button>
                   </div>
@@ -135,9 +100,7 @@ async function login() {
                 <a href="#pablo" class="text-gray-300"><small>Forgot password?</small></a>
               </div>
               <div class="w-1/2 text-right">
-                <a href="#pablo" class="text-gray-300"
-                  ><small>Create new account</small></a
-                >
+                <a href="#pablo" class="text-gray-300"><small>Create new account</small></a>
               </div>
             </div>
           </div>
@@ -150,42 +113,27 @@ async function login() {
             <div class="w-full px-4 md:w-4/12">
               <div class="py-1 text-sm font-semibold text-white">
                 Copyright © 2019
-                <a
-                  href="https://www.creative-tim.com"
-                  class="py-1 text-sm font-semibold text-white hover:text-gray-400"
-                  >Creative Tim</a
-                >
+                <a href="https://www.creative-tim.com"
+                  class="py-1 text-sm font-semibold text-white hover:text-gray-400">Creative Tim</a>
               </div>
             </div>
             <div class="w-full px-4 md:w-8/12">
               <ul class="flex flex-wrap justify-center list-none md:justify-end">
                 <li>
-                  <a
-                    href="https://www.creative-tim.com"
-                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400"
-                    >Creative Tim</a
-                  >
+                  <a href="https://www.creative-tim.com"
+                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400">Creative Tim</a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.creative-tim.com/presentation"
-                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400"
-                    >About Us</a
-                  >
+                  <a href="https://www.creative-tim.com/presentation"
+                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400">About Us</a>
                 </li>
                 <li>
-                  <a
-                    href="http://blog.creative-tim.com"
-                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400"
-                    >Blog</a
-                  >
+                  <a href="http://blog.creative-tim.com"
+                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400">Blog</a>
                 </li>
                 <li>
-                  <a
-                    href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
-                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400"
-                    >MIT License</a
-                  >
+                  <a href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
+                    class="block px-3 py-1 text-sm font-semibold text-white hover:text-gray-400">MIT License</a>
                 </li>
               </ul>
             </div>
